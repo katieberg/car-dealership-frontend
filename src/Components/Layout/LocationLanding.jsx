@@ -68,7 +68,7 @@ class LocationLanding extends React.Component {
         }
         return (
             <div>
-                <h1>{name}</h1>
+                <h1>{name} - <a href={`/${this.props.match.params.location_id}/edit`}>edit location</a></h1>
                 <div className="carGrid" >
                     <Card>
                         <CardBody>

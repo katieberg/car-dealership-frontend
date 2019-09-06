@@ -8,6 +8,8 @@ import Footer from './Components/Layout/Footer';
 import LandingPage from './Components/Layout/LandingPage';
 import LocationLanding from './Components/Layout/LocationLanding';
 import CarPage from './Components/Layout/IndividualCar';
+import EditLocation from './Components/Layout/EditLocation';
+import NewLocation from './Components/Layout/NewLocation';
 
 
 function App() {
@@ -22,7 +24,10 @@ function App() {
 
           <Route path="/login" component={LoginPage} />
           <Route path="/car/:car_id" component={CarPage} />
+          <Route path="/newLocation" component={NewLocation} />
+          <Route path="/:location_id/edit" component={EditLocation} />
           <Route path="/:location_id" component={LocationLanding} />
+
         </Switch>
         <Footer />
       </>

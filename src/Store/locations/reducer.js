@@ -2,7 +2,9 @@ import * as types from './constants'
 
 const initialState = {
     locations: [],
-    err: {}
+    err: {},
+    oneLocation: {},
+    locationId: -1
 }
 
 export default (state = initialState, action) => {
@@ -38,9 +40,17 @@ export default (state = initialState, action) => {
             }
 
         case types.NEW_LOCATION_SUCCESS:
+            console.log(action.payload.data)
             return {
                 ...state,
-                locations: state.locations.push(action.payload.data)
+                locations: state.locations.concat([action.payload.data]),
+                locationId: action.payload.data.id
+            }
+
+        case types.ONE_LOCATION_SUCCESS:
+            return {
+                ...state,
+                oneLocation: action.payload.data
             }
 
         default:

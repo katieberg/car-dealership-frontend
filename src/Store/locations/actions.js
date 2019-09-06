@@ -18,6 +18,23 @@ export const getLocations = () => async dispatch => {
     }
 }
 
+export const getOneLocation = (id) => async dispatch => {
+    dispatch({ type: types.LOCATIONS_PENDING })
+    try {
+        let response = await axios.get(types.BASE_URL + `/${id}`)
+        dispatch({
+            type: types.ONE_LOCATION_SUCCESS,
+            payload: response
+        })
+        //history.push('/dashboard')
+    } catch (err) {
+        dispatch({
+            type: types.LOCATIONS_FAILED,
+            payload: err
+        })
+    }
+}
+
 export const updateLocation = (id, body) => async dispatch => {
     try {
         let response = await axios.patch(types.BASE_URL + `/${id}`, body)
@@ -54,7 +71,7 @@ export const deleteLocation = (id) => async dispatch => {
 
 export const newLoc = (body) => async dispatch => {
     try {
-        let response = await axios.post(types.BASE_URL)
+        let response = await axios.post(types.BASE_URL, body)
         dispatch({
             type: types.NEW_LOCATION_SUCCESS,
             payload: response

@@ -39,6 +39,10 @@ class NavComponent extends React.Component {
                                     <DropdownItem href="/">
                                         All Locations
                                     </DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem href="/newLocation">
+                                        Add A Location
+                                    </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </Nav>
